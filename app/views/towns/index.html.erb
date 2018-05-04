@@ -1,7 +1,6 @@
 <div class="container">
 
-  <h3>Municipios</h3>
-  <%=link_to "Regiones", zones_path%>
+  <h3 class="title">Municipios</h3>
 
   <table class="table table-striped">
     <thead>
@@ -20,7 +19,7 @@
           <th scope="row"><%=town.id%></th>
           <td><%=town.name%></td>
           <td><%=town.zones.length%></td>
-          <td><%=town.status%></td>
+          <td><%=town.status ? "Activa" : "Inactiva"%></td>
           <td><%=link_to "Editar", edit_town_path(town) %></td>
           <td><%=link_to "Eliminar", town_path(town), method: :delete, data: { confirm: 'Are you sure?' }%></td>
         </tr>
