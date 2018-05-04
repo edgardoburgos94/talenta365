@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>Editar región</h3>
+
+  <%=form_for @zone do |f|%>
+
+    <h5>Nombre:</h5>
+    <%=f.text_field :name%> <br> <br><br>
+
+    <h5>Municipios:</h5>
+    <%= f.collection_check_boxes :town_ids, Town.all, :id, :name  do |c| %>
+
+    <div class="checkbox">
+      <%= c.label do %>
+        <%= c.check_box %> <%= c.object.name %>
+      <% end %>
+    </div>
+  <% end %>
+
+    <%=f.submit "Actualizar"%>
+
+  <%end%>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>Editar municipio</h3>
+
+  <%=form_for @town do |f|%>
+
+    <h5>Nombre:</h5>
+    <%=f.text_field :name%> <br> <br><br>
+
+    <h5>Estado:</h5>
+    <%= f.label :status, "Activo", :value => "true"  %>
+    <%= f.radio_button :status, true %>
+    <%= f.label :status, "Inactivo", :value => "false" %>
+    <%= f.radio_button :status, false %>
+
+    <h5>Regiones:</h5>
+    <%= f.collection_check_boxes :zone_ids, Zone.all, :id, :name  do |c| %>
+
+    <div class="checkbox">
+      <%= c.label do %>
+        <%= c.check_box %> <%= c.object.name %>
+      <% end %>
+    </div>
+  <% end %>
+
+    <%=f.submit "Actualizar"%>
+
+  <%end%>
+</div>

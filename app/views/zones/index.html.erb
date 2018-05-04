@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h3>Regiones</h3>
+
+  <%=link_to "Municipios", towns_path%>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Ciudades</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@zones.each do |zone|%>
+        <tr>
+          <th scope="row"><%=zone.id%></th>
+          <td><%=zone.name%></td>
+          <td><%=zone.towns.length%></td>
+          <td><%=link_to "Editar", edit_zone_path(zone) %></td>
+          <td><%=link_to "Eliminar", zone_path(zone), method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
